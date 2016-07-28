@@ -1,6 +1,5 @@
-# Project Title
+# Speedme - Network speed analyser
 
-Speedme - Network speed analyser
 
 ## What is it?
 
@@ -14,7 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 To run this app you will need:
 	- Operational System: GNU Linux, MACOS X (with Docker for mac), Windows (with Docker for Windows)
-	
+
 	- Docker version 1.12.0-rc2
 	- docker-compose version 1.8.0-rc1
 
@@ -73,6 +72,7 @@ Have fun! :D
 ## Documentation
 
 For additional information you can access grafana's and influxdb's docs:
+
 	Grafana: https://github.com/grafana/grafana
 	Influxdb: https://github.com/influxdata/influxdb
 
