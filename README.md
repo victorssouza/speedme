@@ -7,8 +7,6 @@ This project is a simple backend-python script that will test your internet usin
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Pre-requisities
 
 To run this app you will need:
@@ -33,8 +31,6 @@ Inside the 'speedme' directory just type the following syntax to run the app for
 ```
 docker-compose up --build >> log/speedme.log
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
