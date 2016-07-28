@@ -9,7 +9,7 @@ This project is a simple backend-python script that will test your internet usin
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisities
+### Pre-requisities
 
 To run this app you will need:
 	- Operational System: GNU Linux, MACOS X (with Docker for mac), Windows (with Docker for Windows)
@@ -43,6 +43,28 @@ The syntax just runned three containers: a python backend that will post interne
 Just type at your browser: `http://localhost` to access grafana's app. Every minute a new metric will be posted and you will be able to see the results from it.
 
 If you want to see the data it self from influxdb container you can access: `http://localhost:8083`
+
+## Tips and tricks
+
+You can play around with docker-compose run with some shell automation if you are using linux, such as:
+
+1) Using the `nohup` command to not hangup the docker-compose process when you leave your shell and running it as a background process
+```
+nohup docker-compose up --build >> log/speedme.log &
+```
+or
+
+2) Using the `tee` command to redirect the log output at log/speedme.log and to your shell as well
+```
+$ docker-compose up --build | tee -a log/speedme.log
+```
+
+or
+
+3) Combine an alias with one of your syntaxes to make an easier invoke:
+```
+alias speedmeup='nohup docker-compose up --build >> log/speedme.log &'
+```
 
 ### Basic troubleshooting
 
