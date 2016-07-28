@@ -1,0 +1,29 @@
+version: '2'
+services:
+  backend:
+    container_name: speedme_back
+    network_mode: bridge
+    build: .
+    depends_on:
+      - influxdb
+      - grafana
+    links:
+      - influxdb
+  influxdb:
+    container_name: speedme_influxdb
+    image: influxdb:0.13
+    network_mode: bridge
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+    volumes:
+      - $HOME/speedme/app/influxdb:/var/lib/influxdb
+  grafana:
+    container_name: speedme_grafana
+    image: grafana/grafana:3.1.0
+    network_mode: bridge
+    ports:
+      - "3000:3000"
+    volumes:
+      - $HOME/speedme/app/grafana:/var/lib/grafana
+
