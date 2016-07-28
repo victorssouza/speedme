@@ -2,13 +2,16 @@ version: '2'
 services:
   backend:
     container_name: speedme_back
+    environment:
+      - DOCKER_HOST_NAME=$HOST
     network_mode: bridge
     build: .
-    depends_on:
-      - influxdb
-      - grafana
     links:
       - influxdb
+    depends_on:
+      - influxdb
+    volumes:
+      - ./log/speedme.log:/var/logs/speedme/      
   influxdb:
     container_name: speedme_influxdb
     image: influxdb:0.13
@@ -17,13 +20,15 @@ services:
       - "8083:8083"
       - "8086:8086"
     volumes:
-      - $HOME/speedme/app/influxdb:/var/lib/influxdb
+      - ./app/influxdb:/var/lib/influxdb/
+      - ./log/speedme.log:/var/logs/speedme/
   grafana:
     container_name: speedme_grafana
     image: grafana/grafana:3.1.0
     network_mode: bridge
     ports:
-      - "3000:3000"
+      - "80:3000"
     volumes:
-      - $HOME/speedme/app/grafana:/var/lib/grafana
+      - ./app/grafana:/var/lib/grafana/
+      - ./log/speedme.log:/var/logs/speedme/speedme.log      
 
